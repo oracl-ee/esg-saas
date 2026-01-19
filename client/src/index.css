@@ -1,0 +1,8 @@
+/* BASE STYLES - Tailwind's reset and basic styles */
+@tailwind base;
+
+/* COMPONENT CLASSES - Reusable component styles from Tailwind */
+@tailwind components;
+
+/* UTILITY CLASSES - All the utility classes like bg-blue-500, flex, etc. */
+@tailwind utilities;
