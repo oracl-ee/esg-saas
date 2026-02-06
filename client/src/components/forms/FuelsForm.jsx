@@ -1,15 +1,9 @@
-// ============================================================================
 // FUELS FORM - Step 5 of Multi-Step Form
-// 
 // PURPOSE: Collect Scope 1 emissions data (vehicle & equipment fuels)
 // - Yes/No gate for vehicle usage
 // - Gasoline, Diesel, Propane inputs
 // - All optional if they don't use vehicles
 // - Real-time validation
-// 
-// TECH: React + Tailwind + FormContext
-// ============================================================================
-
 import React from 'react';
 import { Fuel, AlertCircle, CheckCircle, Info } from 'lucide-react';
 import { useFormContext } from '../../context/FormContext';
@@ -23,10 +17,6 @@ const FuelsForm = () => {
     errors,
     setErrors 
   } = useFormContext();
-
-  // ============================================================================
-  // VALIDATION
-  // ============================================================================
 
   const validateFuels = () => {
     const newErrors = {};
@@ -70,10 +60,6 @@ const FuelsForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ============================================================================
-  // REAL-TIME VALIDATION
-  // ============================================================================
-
   const validateFieldRealtime = (field, value) => {
     const newErrors = { ...errors };
     const errorKey = `fuels.${field}`;
@@ -95,9 +81,7 @@ const FuelsForm = () => {
     setErrors(newErrors);
   };
 
-  // ============================================================================
-  // HANDLERS
-  // ============================================================================
+  
 
   const handleUsesVehiclesChange = (value) => {
     updateField('fuels', 'usesVehicles', value);
@@ -145,9 +129,6 @@ const FuelsForm = () => {
     }
   };
 
-  // ============================================================================
-  // HELPER: Check if field is valid
-  // ============================================================================
 
   const isFieldValid = (field) => {
     const errorKey = `fuels.${field}`;
@@ -159,10 +140,7 @@ const FuelsForm = () => {
     return !errors[errorKey] && !isNaN(num) && num >= 0 && num <= 1000000;
   };
 
-  // ============================================================================
-  // RENDER
-  // ============================================================================
-
+  
   return (
     <div className="space-y-6">
       

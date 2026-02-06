@@ -1,13 +1,8 @@
-// ============================================================================
 // DATA ENTRY CHOICE - Step 2 of Multi-Step Form
-// 
 // PURPOSE: Let user choose between Upload or Manual entry
 // - Two big, clear options
 // - Shows time estimates
 // - User can switch methods anytime
-// 
-// TECH: React + Tailwind + FormContext
-// ============================================================================
 
 import React from 'react';
 import { Upload, Edit3, Clock, ArrowRight } from 'lucide-react';
@@ -16,10 +11,6 @@ import { useFormContext } from '../../context/FormContext';
 
 const DataEntryChoice = () => {
   const { updateField, nextStep, prevStep } = useFormContext();
-
-  // ============================================================================
-  // HANDLERS
-  // ============================================================================
 
   const selectUpload = () => {
     updateField('root', 'dataEntryMethod', 'upload');
@@ -33,10 +24,7 @@ const DataEntryChoice = () => {
     nextStep(); // Go to step 3 (Electricity form)
   };
 
-  // ============================================================================
-  // RENDER
-  // ============================================================================
-
+  
   return (
     <div className="space-y-8">
       {/* Header */}

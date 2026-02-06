@@ -1,4 +1,3 @@
-// ============================================================================
 // APP.JSX - Main Application Component with Advanced Validation
 // 
 // Features:
@@ -7,7 +6,6 @@
 // - City/ZIP code verification using Zippopotam.us API
 // - "Other" industry custom input field
 // - Data sanitization
-// ============================================================================
 
 import React, { useState, useEffect } from 'react';
 import { useFormContext } from './context/FormContext';
@@ -33,9 +31,7 @@ function App() {
   const [zipVerified, setZipVerified] = useState(false);
   const [zipCityMatch, setZipCityMatch] = useState(null);
 
-  // ============================================================================
-  // ZIP CODE & CITY VERIFICATION using Zippopotam.us API
-  // ============================================================================
+  // using Zippopotam.us API
 
   const verifyZipCode = async (zipCode, city) => {
     if (!zipCode || zipCode.length !== 5 || !city || city.trim().length < 2) {
@@ -102,9 +98,7 @@ function App() {
     return () => clearTimeout(timer);
   }, [formData.company.zipCode, formData.company.city]);
 
-  // ============================================================================
   // VALIDATION HELPERS
-  // ============================================================================
 
   const isValidZip = (zip) => {
     return /^\d{5}$/.test(zip);
@@ -126,9 +120,7 @@ function App() {
     return !isNaN(num) && num > 0 && num <= 1000000 && Number.isInteger(num);
   };
 
-  // ============================================================================
   // REAL-TIME VALIDATION
-  // ============================================================================
 
   const validateFieldRealtime = (section, field, value) => {
     const newErrors = { ...errors };
@@ -185,9 +177,7 @@ function App() {
     setErrors(newErrors);
   };
 
-  // ============================================================================
   // FINAL VALIDATION
-  // ============================================================================
 
   const validateCompanyProfile = () => {
     const newErrors = {};
@@ -240,9 +230,7 @@ function App() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ============================================================================
   // INPUT HANDLERS
-  // ============================================================================
 
   const handleFieldChange = (section, field, value) => {
     let sanitizedValue = value;
@@ -296,9 +284,7 @@ function App() {
     return false;
   };
 
-  // ============================================================================
   // RENDER
-  // ============================================================================
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">

@@ -1,13 +1,10 @@
-// ============================================================================
+
 // COMPANY PROFILE - Step 1 of Multi-Step Form
-// 
 // PURPOSE: Fast onboarding (3 minutes)
 // - Get basic company info
 // - Non-intimidating first step
 // - Save progress immediately
-// 
 // TECH: React + Tailwind + FormContext
-// ============================================================================
 
 import React from 'react';
 import { Building, AlertCircle } from 'lucide-react';
@@ -16,10 +13,6 @@ import { useFormContext } from '../../context/FormContext';
 const CompanyProfile = () => {
   const { formData, updateField, nextStep, errors, setErrors } = useFormContext();
 
-  // ============================================================================
-  // VALIDATION
-  // ============================================================================
-  
   const validate = () => {
     const newErrors = {};
     
@@ -52,20 +45,12 @@ const CompanyProfile = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ============================================================================
-  // HANDLERS
-  // ============================================================================
-  
   const handleContinue = () => {
     if (validate()) {
       nextStep();
     }
   };
 
-  // ============================================================================
-  // RENDER
-  // ============================================================================
-  
   return (
     <div className="space-y-6">
       {/* Header */}

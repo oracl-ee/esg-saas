@@ -1,14 +1,10 @@
-// ============================================================================
 // ELECTRICITY FORM - Step 3 of Multi-Step Form
-// 
 // PURPOSE: Collect Scope 2 emissions data (purchased electricity)
 // - Utility provider selection
 // - Total kWh consumption
 // - Optional renewable energy
 // - Real-time validation
-// 
-// TECH: React + Tailwind + FormContext
-// ============================================================================
+
 
 import React from 'react';
 import { Zap, AlertCircle, CheckCircle, Info } from 'lucide-react';
@@ -23,10 +19,6 @@ const ElectricityForm = () => {
     errors,
     setErrors 
   } = useFormContext();
-
-  // ============================================================================
-  // VALIDATION
-  // ============================================================================
 
   const validateElectricity = () => {
     const newErrors = {};
@@ -55,9 +47,7 @@ const ElectricityForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ============================================================================
   // REAL-TIME VALIDATION
-  // ============================================================================
 
   const validateFieldRealtime = (field, value) => {
     const newErrors = { ...errors };
@@ -94,11 +84,6 @@ const ElectricityForm = () => {
 
     setErrors(newErrors);
   };
-
-  // ============================================================================
-  // HANDLERS
-  // ============================================================================
-
   const handleFieldChange = (field, value) => {
     // Sanitize numeric inputs
     if (field === 'totalKwh' || field === 'renewableKwh') {
@@ -122,9 +107,6 @@ const ElectricityForm = () => {
     }
   };
 
-  // ============================================================================
-  // HELPER: Check if field is valid
-  // ============================================================================
 
   const isFieldValid = (field) => {
     const errorKey = `electricity.${field}`;
@@ -148,10 +130,6 @@ const ElectricityForm = () => {
 
     return false;
   };
-
-  // ============================================================================
-  // RENDER
-  // ============================================================================
 
   return (
     <div className="space-y-6">
